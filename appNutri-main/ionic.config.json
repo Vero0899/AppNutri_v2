@@ -1,0 +1,7 @@
+{
+  "name": "aplinutri",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

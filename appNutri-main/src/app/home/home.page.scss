@@ -1,0 +1,135 @@
+ion-header {
+  ion-toolbar {
+    --background: #8f448f !important; /* Cambiar el color del fondo */
+    --color: #ffffff !important; /* Cambiar el color del texto, si es necesario */
+  }
+}
+
+/* Estilo del contenido principal */
+ion-content {
+  --background: #eb90eb;   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Para que el contenido quede repartido y el carrusel quede al final */
+}
+
+.header-title {
+  font-size: 1.5rem; 
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-logo {
+  height: 40px; 
+  width: auto;  
+  margin-left: 10px; 
+  display: block; /* Comportamiento en bloque */
+}
+
+.custom-button {
+  background-color: #4b2a00 !important; 
+  color: white !important;              
+  border-radius: 20px;                  
+  padding: 2px;                           
+  transition: background-color 0.3s ease; /* Animación de color de fondo */
+}
+
+.custom-button:hover {
+  background-color: #e04d28; 
+}
+
+.welcome-card {
+  background-color: #f297d4; /* Color de fondo del card */
+  color: white !important; 
+  border-radius: 10px;       /* Esquinas redondeadas */
+  padding: 15px;           
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.welcome-card .TituloWelcome{
+  color: black;
+}
+
+/* Animaciones */
+.animated-text {
+  animation: fadeIn 3s ease-in-out;
+  color: white !important; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animated-image {
+  animation: bounceIn 2s ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ajuste del carrusel*/
+.image-slider {
+ /*  border: black solid 2px; */
+  height: 150px;  
+  margin-top: 20px; /* Espacio en la parte superior */
+  margin-bottom: 30px; /* Espacio en la parte inferior */
+  --bullet-background: #f2662b; 
+  display: flex;
+  justify-content: space-evenly; 
+  /* Centrar el carrusel horizontalmente */
+  padding: 0px 10px; /* Añadir espaciado horizontal para evitar se peguen a los bordes */
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px; 
+}
+
+img {
+  width: 80%; /*imágenes más pequeñas */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto zoom*/
+img:hover {
+  transform: scale(1.1); /* Efecto de zoom  */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.purple-button {
+  background-color: #8e44ad !important; /* Color púrpura */
+  color: white !important; /* Color del texto */
+  border-radius: 20px; /* Esquinas redondeadas */
+  transition: background-color 0.3s ease; /* Animación de color de fondo */
+}
+
+.purple-button:hover {
+  background-color: #732d91; /* Color púrpura más oscuro al pasar el ratón */
+}
+
+
+
+

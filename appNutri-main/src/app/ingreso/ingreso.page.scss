@@ -1,0 +1,90 @@
+/* Cambiar color del botón de registro */
+
+/* Cambiar color de fondo de la página */
+ion-content {
+  --background: #f0f0f0 !important; 
+}
+
+/* Cambiar color de fondo del header */
+ion-header {
+  --background: #6a4b9a !important;  // Cambiado a un tono morado
+}
+
+/* Cambiar color del texto del título del header */
+ion-title {
+  color: #ffffff !important; 
+}
+
+/* Cambiar color de los items del formulario */
+ion-item {
+  --background: #ffffff !important; 
+  --color: #333333 !important; 
+}
+
+/* Cambiar color del label del formulario */
+ion-label {
+  color: #555555 !important; 
+}
+
+/* Cambiar color del input del formulario */
+ion-input {
+  --color: #000000 !important; 
+  --placeholder-color: #888888 !important; /* Color del placeholder */
+}
+
+/* Cambiar color del selector de fecha */
+ion-datetime {
+  --background: #ffffff !important; 
+  --color: #000000 !important; 
+}
+
+/* Cambiar color del botón de registro */
+ion-button {
+  --background: #6a4b9a !important;  // Cambiado a un tono morado
+  --color: #ffffff !important; 
+}
+
+/* Cambiar color del checkbox */
+ion-checkbox {
+  --color: #6a4b9a !important;  // Cambiado a un tono morado
+}
+
+/* Estilo para el asterisco que indica campo obligatorio */
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+.header-logo {
+  height: 40px; /* Ajusta el tamaño de la imagen */
+  width: auto;
+  cursor: pointer;  /* Cambia el cursor al pasar el mouse por la imagen */
+  margin-right: 10px; /* Espacio entre la imagen y el botón de retroceso */
+}
+
+/* Estilos adicionales para mejorar la visualización */
+form {
+  width: 100%;
+  max-width: 400px; // Limita el ancho del formulario
+  background-color: rgba(255, 255, 255, 0.9); // Fondo blanco con opacidad
+  border-radius: 12px; // Esquinas redondeadas
+  padding: 20px; // Espaciado interno
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Sombra para profundidad
+}
+
+ion-button[expand="full"] {
+  margin-top: 12px; // Espacio entre los botones
+}
+
+/* Nuevos estilos para el modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto */
+  padding-top: 20px; /* Espacio arriba de la imagen */
+}
+
+.modal-content img {
+  margin-top: 10px; /* Espacio entre el texto y la imagen */
+}

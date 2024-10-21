@@ -1,0 +1,14 @@
+ion-toolbar {
+  display: flex;
+  justify-content: center; // Centra el contenido horizontalmente
+}
+
+ion-buttons {
+  display: flex;
+  justify-content: center; // Centra los botones dentro del toolbar
+  width: 100%; // Asegura que ocupe todo el ancho disponible
+}
+
+.social-icon {
+  margin: 0 10px; // Espaciado entre los botones
+}

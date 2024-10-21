@@ -1,0 +1,150 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+/* Colores y estilos globales para todas las páginas */
+
+/* Encabezado */
+ion-header {
+    ion-toolbar {
+      --background: #8f448f !important; /* Cambiar el color del fondo */
+      --color: #ffffff !important;      /* Cambiar el color del texto */
+    }
+  }
+  
+  /* Botones personalizados */
+  .custom-button {
+    background-color: #f2662b !important; 
+    color: white !important;              
+    border-radius: 20px;                  
+    padding: 1px;                        
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-button:hover {
+    background-color: #e04d28; 
+  }
+  
+  /* Estilo para las tarjetas */
+  .welcome-card {
+    background-color: #e0ceda;
+    border-radius: 10px;       
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animaciones de texto */
+  .animated-text {
+    animation: fadeIn 3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Animaciones para las imágenes */
+  .animated-image {
+    animation: bounceIn 2s ease-in-out;
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Estilo para el carrusel de imágenes */
+  .image-slider {
+    height: 150px;  
+    margin-top: 20px;
+    margin-bottom: 30px;
+    --bullet-background: #f2662b;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  
+  img {
+    width: 80%; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center; /* Centra los iconos horizontalmente */
+    gap: 20px; /* Espacio entre los iconos */
+  }
+  
+  ion-button {
+    --color: #4c3ad5; /* Color de los iconos */
+    --background: transparent;
+    font-size: 10px; /* Tamaño de los iconos */
+  }
+  
+  ion-footer {
+    --background: #8f448f; /* Fondo del footer */
+    --color: #ffffff;
+    padding: 10px;
+  }
+   

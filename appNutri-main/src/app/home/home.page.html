@@ -1,0 +1,136 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="assets/img/mob3.jpg" alt="Logo" class="header-logo">
+    </ion-buttons>
+    <ion-title class="header-title">Hola {{ nombreUsuario }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="custom-button" (click)="confirmLogout()">
+        Cerrar Sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bienvenida</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title class="TituloWelcome">¡Bienvenido a Nutrición en Consciencia, {{ nombreUsuario }}!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Nos alegra tenerte en nuestra comunidad. Nuestra app te ayuda a crear recetas saludables 
+      con los ingredientes que ya tienes en casa, haciendo tu alimentación fácil y placentera. 
+      ¡Estamos aquí para ayudarte en cada paso!
+    </ion-card-content>
+  </ion-card>
+
+  <div class="animated-text">
+    <p>Explora nuevas recetas y consejos de nutrición</p>
+  </div>
+
+  <div class="image-column">
+    <ion-card (click)="openModal('assets/img/emparedado.jpeg', 'TLP Sandwhich', '¡Idea de desayuno para ti!: Delicioso emparedado de pollo y verduras. Ideal para un almuerzo saludable. Puede comerse frio o caliente')">
+      <img src="assets/img/emparedado.jpeg" alt="Receta 1" class="animated-image">
+    </ion-card>
+    <ion-card (click)="openModal('assets/img/pescado.jpeg', 'Pescado al Jugo', '¡Idea de almuerzo para ti!: Pescado cocido a fuego lento con hierbas frescas y limón. Simple, en una sola olla y sin mucha supervisión. Receta perfecta para días ocupados que requieren energía de buena calidad y duradera')">
+      <img src="assets/img/pescado.jpeg" alt="Receta 2" class="animated-image">
+    </ion-card>
+    <ion-card (click)="openModal('assets/img/frutasavena.jpeg', 'FrutiAvena', '¡Idea de cena para ti!:Avena con frutas frescas, perfecta para un cierre de día saludable y lleno de energía y antioxidantes. Puede prepararse con fruta fresca o congelada.')">
+      <img src="assets/img/frutasavena.jpeg" alt="Receta 3" class="animated-image">
+    </ion-card>
+  </div>
+  
+
+  <!-- Botón para ir a recetaFav -->
+  <div class="button-container">
+    <ion-button expand="full" class="purple-button" (click)="navigateToRecetaFav()">Receta Top #1 de la semana</ion-button>
+  </div>
+
+  <!-- Modal Trigger -->
+  <ion-modal #modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="modal-title">{{ modalTitle }}</ion-title> <!-- Cambié el nombre de la clase a modal-title -->
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <img [src]="modalImage" alt="Imagen de la receta" style="width: 100%;">
+        <p>{{ modalContent }}</p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-icons">
+      <ion-button href="https://facebook.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button href="https://instagram.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button href="https://whatsapp.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+<style>
+  .image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra las imágenes horizontalmente */
+  }
+
+  .image-column ion-card {
+    margin-bottom: 16px; /* Espacio entre las tarjetas */
+    width: 80%; /* Puedes ajustar el ancho según sea necesario */
+  }
+
+  .animated-image {
+    width: 100%; /* Asegúrate de que las imágenes se ajusten al contenedor */
+    border-radius: 8px; /* Estilo opcional para bordes redondeados */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centra el botón */
+    margin: 20px 0; /* Espacio arriba y abajo del botón */
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: center; /* Centra los íconos horizontalmente */
+    width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+  }
+
+  .social-icon {
+    font-size: 24px; /* Ajusta el tamaño del ícono según sea necesario */
+    margin: 0 10px; /* Espacio entre los íconos */
+  }
+
+  /* Estilo adicional para el título del modal */
+  .modal-title {
+    font-size: 16px; /* Tamaño de fuente más pequeño para el título del modal */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el desbordamiento */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es demasiado largo */
+  }
+
+  /* Estilo opcional para el contenido del modal */
+  ion-content p {
+    font-size: 14px; /* Tamaño de fuente más pequeño para el contenido del modal */
+  }
+</style>
