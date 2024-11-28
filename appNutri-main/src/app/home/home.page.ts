@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../servicios/auth.service';
-import { NavController, AlertController } from '@ionic/angular'; // Asegúrate de importar estos módulos
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomePage {
   modalTitle = '';
   modalContent = '';
   modalImage = '';
-  nombreUsuario: string = '';
+  nombreUsuario: string | null = null; // Acepta null
 
   // Opciones para el carrusel de imágenes
   slideOpts = {
@@ -26,21 +26,29 @@ export class HomePage {
     private authService: AuthService, 
     private navCtrl: NavController, 
     private alertController: AlertController
-  ) {
-    this.nombreUsuario = this.authService.getUserName();
+  ) {}
+
+  // Este método se ejecuta cada vez que la vista Home está a punto de ser cargada
+  ngOnInit() {
+    const storedName = localStorage.getItem('userName');
+    console.log('Nombre en localStorage:', storedName); // Verifica si el nombre se recupera correctamente
+    this.nombreUsuario = storedName || ''; // Si no se encuentra, asigna una cadena vacía
   }
 
-  openModal(image: string, title: string, content: string) { // Agregado el parámetro content
+  // Método para abrir el modal
+  openModal(image: string, title: string, content: string) { 
     this.modalImage = image;
     this.modalTitle = title;
-    this.modalContent = content; // Asigna el contenido recibido
+    this.modalContent = content;
     this.isModalOpen = true;
   }
 
+  // Método para cerrar el modal
   closeModal() {
     this.isModalOpen = false;
   }
 
+  // Confirmación de cierre de sesión
   async confirmLogout() {
     const alert = await this.alertController.create({
       header: 'Confirmar',
@@ -55,7 +63,9 @@ export class HomePage {
           text: 'Cerrar Sesión',
           handler: () => {
             this.authService.cerrarSesion(); // Llama al método de cerrar sesión
+            localStorage.removeItem('userName'); // Elimina el nombre del usuario de localStorage
             this.navCtrl.navigateRoot('/ingreso'); // Navega a la página de ingreso
+            this.nombreUsuario = ''; // Limpia el estado del nombre del usuario
           },
         },
       ],
@@ -67,5 +77,15 @@ export class HomePage {
   // Método para navegar al módulo recetaFav
   navigateToRecetaFav() {
     this.navCtrl.navigateForward('/receta-fav');
+  }
+
+  // Método para navegar a la página de "ingreso" cuando se haga clic en "Iniciar sesión"
+  navigateToLogin() {
+    this.navCtrl.navigateRoot('/ingreso');  // Redirige a la página "ingreso"
+  }
+
+  // Método para verificar si el usuario está logueado
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn(); // Verifica si el usuario está logueado
   }
 }

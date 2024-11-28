@@ -11,6 +11,7 @@ export class IngresoPage implements OnInit {
   nombreUsuario: string = ''; // Cambiado de email a nombreUsuario
   password: string = ''; // Cambiado de password a contraseña para mantener la coherencia
   showPassword: boolean = false; // Variable para mostrar/ocultar la contraseña
+  isLoggedIn: boolean = false; // Variable para saber si el usuario está logueado
 
   constructor(
     private navCtrl: NavController,
@@ -18,7 +19,10 @@ export class IngresoPage implements OnInit {
     private alertController: AlertController // Inyecta AlertController para mostrar errores
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Verifica si el usuario ya está logueado al iniciar la página
+    this.isLoggedIn = this.authService.isLoggedIn(); // Actualiza el estado de isLoggedIn
+  }
 
   // Lógica de inicio de sesión
   async login() {
@@ -32,6 +36,8 @@ export class IngresoPage implements OnInit {
         // Verificar el mensaje de respuesta
         if (response.message === 'Ingreso exitoso') { // Cambia 'Login exitoso' a 'Ingreso exitoso'
           console.log('Login exitoso');
+          this.isLoggedIn = true; // Cambia el estado a logueado
+          console.log('Datos después del login', response);
           this.navCtrl.navigateForward('/home'); // Redirige a la página home
         } else {
           this.mostrarError('Usuario o contraseña incorrecta'); // Muestra mensaje genérico
@@ -63,5 +69,18 @@ export class IngresoPage implements OnInit {
   // Método para cambiar la visibilidad de la contraseña
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword; // Cambia el estado de visibilidad
+  }
+
+  // Método para regresar a la página inicial
+  goToInicio() {
+    this.navCtrl.navigateBack('/'); // Navega de regreso a la página principal (home o raíz)
+  }
+
+  // Método para cerrar sesión
+  logout() {
+    this.authService.cerrarSesion(); // Cierra la sesión
+    this.isLoggedIn = false; // Cambia el estado a no logueado
+    console.log('Usuario desconectado');
+    this.navCtrl.navigateBack('/'); // Regresa a la página inicial
   }
 }

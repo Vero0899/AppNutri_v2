@@ -1,135 +1,267 @@
 ion-header {
   ion-toolbar {
-    --background: #8f448f !important; /* Cambiar el color del fondo */
-    --color: #ffffff !important; /* Cambiar el color del texto, si es necesario */
+    --background: #8f448f; /* Cambiar el color del fondo */
+    --color: #ffffff; /* Cambiar el color del texto */
   }
 }
 
 /* Estilo del contenido principal */
 ion-content {
-  --background: #eb90eb;   
+  --background: #eb90eb;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Para que el contenido quede repartido y el carrusel quede al final */
+  justify-content: space-between; /* Para que el contenido quede repartido */
+}
+
+/* Estilo para deshabilitar los botones */
+.disabled-button {
+  background-color: gray;
+  color: white;
+  pointer-events: none;
 }
 
 .header-title {
   font-size: 1.5rem; 
   text-align: center;
   margin: 0 auto;
+  padding-left: -65px;
   width: 100%;
 }
+
+/* Estilo para el título de cada receta */
+.recipe-title {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 8px;
+  color: #4b2a00;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column; /* Coloca las tarjetas una debajo de la otra */
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-title {
+  font-size: 10px;
+  font-weight: bold;
+  color: #4b2a00;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.centered-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-title {
+  text-align: center;
+  padding-left: 12%;
+}
+
+
+
 
 .header-logo {
   height: 40px; 
   width: auto;  
   margin-left: 10px; 
-  display: block; /* Comportamiento en bloque */
+  display: block;
 }
 
 .custom-button {
-  background-color: #4b2a00 !important; 
-  color: white !important;              
-  border-radius: 20px;                  
-  padding: 2px;                           
-  transition: background-color 0.3s ease; /* Animación de color de fondo */
+  background-color: #4b2a00; 
+  color: white;
+  border-radius: 20px;
+  padding: 2px;
+  transition: background-color 0.3s ease;
 }
 
 .custom-button:hover {
-  background-color: #e04d28; 
+  background-color: #e04d28;
 }
 
 .welcome-card {
-  background-color: #f297d4; /* Color de fondo del card */
-  color: white !important; 
-  border-radius: 10px;       /* Esquinas redondeadas */
-  padding: 15px;           
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #f297d4;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.welcome-card .TituloWelcome{
+.welcome-card .TituloWelcome {
   color: black;
 }
 
-/* Animaciones */
 .animated-text {
-  animation: fadeIn 3s ease-in-out;
-  color: white !important; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+}
+
+.animated-text p {
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: red; }
+  25% { color: orange; }
+  50% { color: yellow; }
+  75% { color: green; }
+  100% { color: blue; }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animated-image {
-  animation: bounceIn 2s ease-in-out;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.animated-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Ajuste del carrusel*/
 .image-slider {
- /*  border: black solid 2px; */
-  height: 150px;  
-  margin-top: 20px; /* Espacio en la parte superior */
-  margin-bottom: 30px; /* Espacio en la parte inferior */
-  --bullet-background: #f2662b; 
+  height: 150px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  --bullet-background: #f2662b;
   display: flex;
-  justify-content: space-evenly; 
-  /* Centrar el carrusel horizontalmente */
-  padding: 0px 10px; /* Añadir espaciado horizontal para evitar se peguen a los bordes */
+  justify-content: space-evenly;
+  padding: 0px 10px;
 }
 
 .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px; 
+  padding: 0 10px;
 }
 
 img {
-  width: 80%; /*imágenes más pequeñas */
+  width: 80%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
-/* Efecto zoom*/
 img:hover {
-  transform: scale(1.1); /* Efecto de zoom  */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos específicos para el título en el modal */
+.modal-title {
+  font-size: 15px;
+  color: #c5a0d4;
+  font-weight: bold;
+  text-align: center;
 }
 
 .purple-button {
-  background-color: #8e44ad !important; /* Color púrpura */
-  color: white !important; /* Color del texto */
-  border-radius: 20px; /* Esquinas redondeadas */
-  transition: background-color 0.3s ease; /* Animación de color de fondo */
+  background-color: #8e44ad;
+  color: white;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
 .purple-button:hover {
-  background-color: #732d91; /* Color púrpura más oscuro al pasar el ratón */
+  background-color: #732d91;
 }
 
+.institutional-card {
+  margin: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f2e4f9;
+}
 
+.logo-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.institutional-logo {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+}
 
+.text-column {
+  display: flex;
+  align-items: center;
+}
+
+.institutional-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #4b2a00;
+}
+
+.image-column ion-card {
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(243, 58, 218, 0.2);
+  border-radius: 12px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-icon {
+  font-size: 24px;
+  margin: 0 15px;
+}
+
+/* Estilo para los botones */
+.logout-button,
+.login-button {
+  --background: #007bff; /* Azul para ambos botones */
+  --color: white; /* Color del texto */
+  --border-radius: 20px; /* Esquinas redondeadas */
+  --height: 25px; /* Altura más pequeña */
+  --font-size: 10px; /* Tamaño de fuente reducido */
+  --padding-start: 5px; /* Relleno izquierdo reducido */
+  --padding-end: 5px; /* Relleno derecho reducido */
+  --border-width: 1px; /* Borde del botón */
+  width: auto; /* Hace que el botón se ajuste automáticamente a su contenido */
+  height: 25px; /* Define la altura exacta del botón */
+}
+
+/* Asegurarse de que los botones estén alineados a la derecha */
+ion-buttons[slot="end"] {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+.logout-button {
+  margin-right: 10px; /* Añade espacio entre los botones */
+}

@@ -11,26 +11,33 @@
 
 <ion-content [fullscreen]="true" class="content">
   <div *ngIf="meal" class="meal-container">
+    <!-- Título de la receta -->
     <h2 class="meal-title">{{ meal.strMeal }}</h2>
+    
+    <!-- Imagen de la receta -->
     <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}" class="meal-image">
-
+    
+    <!-- Ingredientes -->
     <h3 class="section-title">Ingredientes</h3>
     <ul class="ingredient-list">
       <li *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" class="ingredient-item">
-        <span *ngIf="meal['strIngredient' + i]">{{ meal['strMeasure' + i] }} {{ meal['strIngredient' + i] }}</span>
+        <span *ngIf="meal['strIngredient' + i]">
+          {{ meal['strMeasure' + i] }} {{ meal['strIngredient' + i] }}
+        </span>
       </li>
     </ul>
 
+    <!-- Instrucciones -->
     <h3 class="section-title">Instrucciones</h3>
     <p class="instructions">{{ meal.strInstructions }}</p>
+
+    <!-- Enlace al video -->
     <a [href]="meal.strYoutube" target="_blank" class="video-link">Ver Video</a>
   </div>
 
   <!-- Botón para guardar la receta -->
   <div class="button-container">
-    <ion-button class="save-button" (click)="saveRecipe()">
-      Guardar Receta
-    </ion-button>
+    <ion-button class="save-button" (click)="saveRecipe()">Guardar Receta</ion-button>
   </div>
 
   <ion-footer>
@@ -63,59 +70,68 @@
   .meal-container {
     max-width: 600px; /* Limita el ancho del contenido */
     text-align: center; /* Centra el texto */
+    margin-left: 20px; /* Espacio a la izquierda */
+    margin-right: 20px; /* Espacio a la derecha */
   }
 
   .meal-title {
-    font-size: 1.8rem; /* Tamaño de fuente del título */
-    margin: 10px 0; /* Espaciado arriba y abajo */
+    font-size: 2rem; /* Tamaño de fuente más grande para el título */
+    font-weight: bold;
+    margin: 15px 0; /* Espaciado arriba y abajo */
     color: #4b2a00; /* Color del título */
   }
 
   .meal-image {
-    width: 80%; /* Ajusta el ancho de la imagen */
+    width: 70%; /* Hace que la imagen sea más pequeña (70% del ancho del contenedor) */
     height: auto; /* Mantiene la proporción de la imagen */
     border-radius: 10px; /* Esquinas redondeadas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
+    margin: 20px 0; /* Añade espacio alrededor de la imagen */
   }
 
   .section-title {
-    font-size: 1.5rem; /* Tamaño de fuente para subtítulos */
-    margin: 15px 0; /* Espaciado */
+    font-size: 1.6rem; /* Tamaño de fuente para subtítulos */
+    margin: 20px 0; /* Espaciado */
     color: #4b2a00; /* Color de los subtítulos */
   }
 
   .ingredient-list {
     list-style-type: none; /* Elimina los puntos de la lista */
     padding: 0; /* Elimina el padding por defecto */
+    font-size: 1.1rem; /* Tamaño de fuente de los ingredientes */
+    text-align: left; /* Alinea el texto de los ingredientes a la izquierda */
+    margin-left: 10px;
   }
 
   .ingredient-item {
-    font-size: 1.2rem; /* Tamaño de fuente de los ingredientes */
-    margin: 5px 0; /* Espaciado entre ingredientes */
+    margin: 8px 0; /* Espaciado entre ingredientes */
   }
 
   .instructions {
-    font-size: 1.0rem; /* Tamaño de fuente de las instrucciones */
-    margin: 10px 0; /* Espaciado */
+    font-size: 1.1rem; /* Tamaño de fuente de las instrucciones */
+    margin: 15px 0; /* Espaciado */
+    text-align: left; /* Alinea las instrucciones a la izquierda */
   }
 
   .video-link {
     color: #d43810; /* Color del enlace al video */
     text-decoration: underline; /* Subrayado */
+    font-size: 1.1rem;
   }
 
   .button-container {
     display: flex;
     justify-content: center; /* Centra el botón */
-    margin: 20px 0; /* Espacio arriba y abajo del botón */
+    margin: 30px 0; /* Espacio arriba y abajo del botón */
   }
 
   .save-button {
     --background: #8e44ad; /* Color de fondo del botón */
     --color: white; /* Color del texto */
-    width: 100px; /* Ancho del botón */
-    height: 40px; /* Altura del botón */
-    border-radius: 20px; /* Esquinas redondeadas */
+    width: 200px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    border-radius: 25px; /* Esquinas redondeadas */
+    font-size: 1.2rem; /* Tamaño de la fuente del botón */
   }
 
   /* Estilo para el footer */
@@ -126,7 +142,7 @@
   }
 
   .social-icon {
-    font-size: 24px; /* Ajusta el tamaño del ícono según sea necesario */
+    font-size: 28px; /* Ajusta el tamaño del ícono según sea necesario */
     margin: 0 15px; /* Espacio entre los íconos */
   }
 </style>

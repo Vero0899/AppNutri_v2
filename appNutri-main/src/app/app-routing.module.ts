@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'ingreso',  // Redirige a la página de ingreso por defecto
+    redirectTo: 'home', // Ahora redirige a la página de inicio "home"
     pathMatch: 'full'
   },
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
   },
   {
-    path: 'receta-fav', // Asegúrate de que este es el nombre de la ruta que estás utilizando
+    path: 'receta-fav',
     loadChildren: () => import('./receta-fav/receta-fav.module').then(m => m.RecetaFavPageModule)
   },
 ];
