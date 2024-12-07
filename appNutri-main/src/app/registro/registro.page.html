@@ -8,64 +8,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+<ion-content class="ion-padding">
+  <form [formGroup]="registroForm" (ngSubmit)="register()">
     <!-- Nombre Completo -->
     <ion-item>
-      <ion-label position="floating">
-        Nombre Completo <span class="required">*</span>
-      </ion-label>
-      <ion-input type="text" formControlName="nombreCompleto" placeholder="Ingresa tu nombre completo"></ion-input>
+      <ion-input type="text" label="Nombre Completo" labelPlacement="floating" formControlName="nombreCompleto"
+                 placeholder="Ingresa tu nombre"></ion-input>
     </ion-item>
-    <div *ngIf="registroForm.get('nombreCompleto')?.invalid && registroForm.get('nombreCompleto')?.touched">
-      <p class="error">El nombre completo es obligatorio</p>
-    </div>
 
     <!-- RUT -->
     <ion-item>
-      <ion-label position="floating">
-        RUT <span class="required">*</span>
-      </ion-label>
-      <ion-input type="text" formControlName="rut" placeholder="Ingrese RUT sin puntos y guión"></ion-input>
+      <ion-input label="Rut" labelPlacement="floating" type="text" formControlName="rut"
+                 placeholder="Ingrese RUT sin puntos y guión"></ion-input>
     </ion-item>
-    <div *ngIf="registroForm.get('rut')?.invalid && registroForm.get('rut')?.touched">
-      <p class="error" *ngIf="registroForm.get('rut')?.hasError('required')">El RUT es obligatorio</p>
-      <p class="error" *ngIf="registroForm.get('rut')?.hasError('invalidRut')">RUT no válido</p>
-    </div>
+
 
     <!-- Correo Electrónico -->
     <ion-item>
-      <ion-label position="floating">
-        Correo Electrónico <span class="required">*</span>
-      </ion-label>
-      <ion-input type="email" formControlName="email" placeholder="Ingresa tu correo"></ion-input>
+      <ion-input type="email" label="Correo" labelPlacement="floating" formControlName="email"
+                 placeholder="Ingresa tu correo"></ion-input>
     </ion-item>
-    <div *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
-      <p class="error" *ngIf="registroForm.get('email')?.hasError('required')">El correo es obligatorio</p>
-      <p class="error" *ngIf="registroForm.get('email')?.hasError('email')">Correo electrónico no válido</p>
-    </div>
 
     <!-- Nombre de Usuario -->
     <ion-item>
-      <ion-label position="floating">
-        Nombre de Usuario <span class="required">*</span>
-      </ion-label>
-      <ion-input type="text" formControlName="nombreUsuario" placeholder="Ingresa tu nombre de usuario"></ion-input>
+      <ion-input type="text" label="Nombre Usuario" labelPlacement="floating" formControlName="nombreUsuario"
+                 placeholder="Ingresa tu nombre de usuario"></ion-input>
     </ion-item>
-    <div *ngIf="registroForm.get('nombreUsuario')?.invalid && registroForm.get('nombreUsuario')?.touched">
-      <p class="error">El nombre de usuario es obligatorio</p>
-    </div>
 
     <!-- Contraseña -->
     <ion-item>
-      <ion-label position="floating">
-        Contraseña <span class="required">*</span>
-      </ion-label>
-      <ion-input type="password" formControlName="password" placeholder="Ingresa tu contraseña"></ion-input>
+      <ion-input type="password" label="Contraseña" labelPlacement="floating" formControlName="password"
+                 placeholder="Ingresa tu contraseña"></ion-input>
     </ion-item>
-    <div *ngIf="registroForm.get('password')?.invalid && registroForm.get('password')?.touched">
-      <p class="error">La contraseña es obligatoria</p>
-    </div>
 
     <!-- Botón de registro -->
     <ion-button expand="full" color="primary" type="submit" [disabled]="registroForm.invalid">

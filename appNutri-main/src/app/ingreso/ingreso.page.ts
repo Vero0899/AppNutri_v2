@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular'; // Importa AlertController
-import { AuthService } from '../servicios/auth.service'; // Importa el servicio de autenticación
+import {Component, OnInit} from '@angular/core';
+import {NavController, AlertController} from '@ionic/angular'; // Importa AlertController
+import {RegistroPage} from "../registro/registro.page";
+import {Router} from "@angular/router";
+import {AuthService} from "../core/auth/auth.service"; // Importa el servicio de autenticación
 
 @Component({
   selector: 'app-ingreso',
@@ -8,6 +10,7 @@ import { AuthService } from '../servicios/auth.service'; // Importa el servicio 
   styleUrls: ['./ingreso.page.scss'],
 })
 export class IngresoPage implements OnInit {
+  registro = RegistroPage; // Cambiado de registro a RegistroPage
   nombreUsuario: string = ''; // Cambiado de email a nombreUsuario
   password: string = ''; // Cambiado de password a contraseña para mantener la coherencia
   showPassword: boolean = false; // Variable para mostrar/ocultar la contraseña
@@ -16,38 +19,26 @@ export class IngresoPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authService: AuthService, // Inyecta el servicio de autenticación
-    private alertController: AlertController // Inyecta AlertController para mostrar errores
-  ) {}
+    private alertController: AlertController, // Inyecta AlertController para mostrar errores,
+    private _router: Router // Inyecta Router para navegar entre páginas
+  ) {
+  }
 
   ngOnInit() {
     // Verifica si el usuario ya está logueado al iniciar la página
-    this.isLoggedIn = this.authService.isLoggedIn(); // Actualiza el estado de isLoggedIn
+    this.isLoggedIn = this.authService.isLogged; // Actualiza el estado de isLoggedIn
   }
 
-  // Lógica de inicio de sesión
-  async login() {
+  login() {
     if (this.nombreUsuario && this.password) {
-      try {
-        const response = await this.authService.loginUser({
-          nombre_usuario: this.nombreUsuario,
-          contraseña: this.password
-        });
-
-        // Verificar el mensaje de respuesta
-        if (response.message === 'Ingreso exitoso') { // Cambia 'Login exitoso' a 'Ingreso exitoso'
-          console.log('Login exitoso');
-          this.isLoggedIn = true; // Cambia el estado a logueado
-          console.log('Datos después del login', response);
-          this.navCtrl.navigateForward('/home'); // Redirige a la página home
+      this.authService.login(this.nombreUsuario, this.password).then((response) => {
+        console.log(response);
+        if (response) {
+          this.navCtrl.navigateForward('/home');
         } else {
-          this.mostrarError('Usuario o contraseña incorrecta'); // Muestra mensaje genérico
+          this.mostrarError('Usuario o contraseña incorrectos');
         }
-      } catch (error) {
-        console.error('Error en el login:', error);
-        this.mostrarError('Usuario o contraseña incorrecta'); // Mensaje de error genérico
-      }
-    } else {
-      this.mostrarError('Por favor ingrese su nombre de usuario y contraseña.');
+      });
     }
   }
 
@@ -66,6 +57,12 @@ export class IngresoPage implements OnInit {
     this.navCtrl.navigateForward('/registro');
   }
 
+  goToRecuperar(): void {
+    this.navCtrl.navigateForward('/recuperar');
+    //this._router.navigate(['/recuperar']); // Navega a la página de recuperar contraseña
+    //this.navCtrl.navigateForward('/recuperar');
+  }
+
   // Método para cambiar la visibilidad de la contraseña
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword; // Cambia el estado de visibilidad
@@ -73,14 +70,7 @@ export class IngresoPage implements OnInit {
 
   // Método para regresar a la página inicial
   goToInicio() {
+    this._router.navigate(['/home']); // Navega a la página de inicio
     this.navCtrl.navigateBack('/'); // Navega de regreso a la página principal (home o raíz)
-  }
-
-  // Método para cerrar sesión
-  logout() {
-    this.authService.cerrarSesion(); // Cierra la sesión
-    this.isLoggedIn = false; // Cambia el estado a no logueado
-    console.log('Usuario desconectado');
-    this.navCtrl.navigateBack('/'); // Regresa a la página inicial
   }
 }

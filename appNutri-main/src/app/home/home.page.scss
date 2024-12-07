@@ -230,15 +230,41 @@ img:hover {
   border-radius: 12px;
 }
 
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+ion-footer {
+  .rounded-footer {
+    border-radius: 20px 20px 20px 20px; /* Esquinas superiores redondeadas */
+    background: #ffffff; /* Fondo blanco */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow: hidden; /* Previene que los hijos sobresalgan */
+    height: 60px;
+    width: 95%;
+  }
 
-.social-icon {
-  font-size: 24px;
-  margin: 0 15px;
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0; /* Espaciado interno */
+  }
+
+  .social-icon {
+    font-size: 24px;
+    margin: 0 15px;
+    --background: transparent; /* Sin fondo en los botones */
+  }
+
+  ion-icon[name="logo-facebook"] {
+    color: #3b5998; /* Azul de Facebook */
+  }
+
+  ion-icon[name="logo-whatsapp"] {
+    color: #25d366; /* Verde de WhatsApp */
+  }
+
+  ion-icon[name="logo-instagram"] {
+    color: #e1306c; /* Rojo Instagram */
+  }
 }
 
 /* Estilo para los botones */

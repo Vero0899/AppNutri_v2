@@ -1,0 +1,83 @@
+/* Cambiar color de fondo de la página */
+ion-content {
+  --background: #f0f0f0;
+  padding: 16px; /* Aumenta el padding si es necesario */
+}
+
+/* Cambiar color de fondo del header */
+ion-header {
+  --background: #4e60b9; 
+}
+
+/* Cambiar color del texto del título del header */
+ion-title {
+  color: #ffffff; 
+}
+
+/* Cambiar color de los items del formulario */
+ion-item {
+  --background: #ffffff; 
+  --color: #333333; 
+  margin-bottom: 16px; /* Espacio entre los campos del formulario */
+}
+
+/* Cambiar color del label del formulario */
+ion-label {
+  color: #555555; 
+}
+
+/* Cambiar color del input del formulario */
+ion-input {
+  --color: #000000; 
+  --placeholder-color: #888888; 
+  padding: 12px; /* Añadir padding para separar el texto del input */
+}
+
+/* Cambiar color del selector de fecha */
+ion-datetime {
+  --background: #ffffff; 
+  --color: #000000; 
+}
+
+/* Cambiar color del botón de registro */
+ion-button {
+  --background: #4CAF50; 
+  --color: #ffffff; 
+  margin-top: 16px; /* Espacio superior para el botón */
+}
+
+/* Cambiar color del checkbox */
+ion-checkbox {
+  --color: #4CAF50; 
+}
+
+/* Estilo para el asterisco que indica campo obligatorio */
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+/* Logo en el header */
+.header-logo {
+  height: 40px; /* Ajusta el tamaño de la imagen */
+  width: auto;
+  cursor: pointer;  /* Cambia el cursor al pasar el mouse por la imagen */
+  margin-right: 10px; /* Espacio entre la imagen y el botón de retroceso */
+}
+
+/* Estilo para los mensajes de error */
+.error {
+  color: red; /* Color rojo para mensajes de error */
+  font-size: 0.9em; /* Tamaño de fuente más pequeño */
+  margin-top: 4px; /* Espacio superior para el mensaje de error */
+}
+
+/* Estilo adicional para el formulario */
+form {
+  margin-top: 16px; /* Espacio superior para el formulario */
+}
+
+/* Añadir margen a los inputs para evitar superposición con labels */
+ion-item ion-input {
+  margin-top: 5%; /* Espacio superior entre el input y el label */
+}

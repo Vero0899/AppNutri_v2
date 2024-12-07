@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ingreso" icon="arrow-back" text="" slot="start"></ion-back-button>
+      <ion-title>Recuperar Contraseña</ion-title>
+      <img ngSrc="assets/img/mob3.jpg" alt="Logo" class="header-logo" (click)="goToLogin()" height="239" width="225">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="recover()">
+    <ion-item>
+      <ion-input type="text" label="Nombre Usuario" labelPlacement="floating" formControlName="username"
+                 placeholder="Ingresa tu nombre de usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [type]="showPassword ? 'text' : 'password'" label="Nueva Contraseña" labelPlacement="floating"
+                 formControlName="password"
+                 placeholder="Ingresa tu nueva contraseña"></ion-input>
+      <ion-icon
+        slot="end"
+        [name]="showPassword ? 'eye-off' : 'eye'"
+        (click)="togglePasswordVisibility()"
+        style="cursor: pointer;"></ion-icon>
+    </ion-item>
+    <ion-button expand="full" color="primary" type="submit" [disabled]="form.invalid">
+      Restablecer Contraseña
+    </ion-button>
+  </form>
+
+</ion-content>

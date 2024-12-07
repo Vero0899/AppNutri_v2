@@ -1,30 +1,34 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>¡Bienvenido a tu mejor Versión!</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <form (ngSubmit)="login()">
-      <ion-item>
-        <ion-label position="floating">Nombre de Usuario</ion-label>
-        <ion-input [(ngModel)]="nombreUsuario" name="nombreUsuario" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" name="password" required>
-          <ion-icon 
-            slot="end" 
-            [name]="showPassword ? 'eye-off' : 'eye'" 
-            (click)="togglePasswordVisibility()"
-            style="cursor: pointer;"></ion-icon>
-        </ion-input>
-      </ion-item>
-      <ion-button class="ingresoLogin" expand="full" type="submit">Login</ion-button>
-    </form>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¡Bienvenido a tu mejor Versión!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="login()">
+        <ion-item>
+          <ion-label position="floating">Nombre de Usuario</ion-label>
+          <ion-input [(ngModel)]="nombreUsuario" name="nombreUsuario" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" name="password" required>
+            <ion-icon
+              slot="end"
+              [name]="showPassword ? 'eye-off' : 'eye'"
+              (click)="togglePasswordVisibility()"
+              style="cursor: pointer;"></ion-icon>
+          </ion-input>
+        </ion-item>
+        <ion-button class="ingresoLogin" expand="full" type="submit">Login</ion-button>
+      </form>
+      <!-- Botón para ir a la página de registro -->
+      <ion-button expand="full" (click)="goToRegistro()">Registrarse</ion-button>
+      <!-- Botón para ir a la página de registro -->
+      <ion-button expand="full" (click)="goToRecuperar()">Restablecer contraseña</ion-button>
 
-    <!-- Botón para ir a la página de registro -->
-    <ion-button expand="full" (click)="goToRegistro()">Registrarse</ion-button>
+      <!-- Botón para regresar a la página inicial -->
+      <ion-button expand="full" (click)="goToInicio()">Volver a la Página Inicial</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
 
-    <!-- Botón para regresar a la página inicial -->
-    <ion-button expand="full" (click)="goToInicio()">Volver a la Página Inicial</ion-button>
-  </ion-card-content>
-</ion-card>
